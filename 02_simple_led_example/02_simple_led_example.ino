@@ -17,7 +17,7 @@
 #define NUM_LEDS 15
 
 // Data pin that led data will be written out over (the pin connected to "DI" on the ledstrip) 
-#define DATA_PIN 10
+#define DATA_PIN 6
 
 // This is an array of leds.  One item for each led in your strip.
 CRGB leds[NUM_LEDS];

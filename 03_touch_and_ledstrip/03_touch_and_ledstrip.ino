@@ -16,7 +16,7 @@ float maxVal = 0; // variable holding maximum capacitance sensor value
 #define NUM_LEDS 15
 
 // Data pin that led data will be written out over
-#define DATA_PIN 10
+#define DATA_PIN 6
 
 // This is an array of leds.  One item for each led in your strip.
 CRGB leds[NUM_LEDS];
@@ -38,8 +38,8 @@ void loop() {
   long start = millis();
   long val =  cs_4_2.capacitiveSensor(30);
 
-  Serial.print(millis() - start);        // check on performance in milliseconds
-  Serial.print("\t");                    // tab character for debug windown spacing
+//  Serial.print(millis() - start);        // check on performance in milliseconds
+//  Serial.print("\t");                    // tab character for debug windown spacing
 
   float smoothed = smooth(val);
   Serial.print(val);                  // print sensor output 1
@@ -54,7 +54,8 @@ void loop() {
   int currLed = map( smoothed, 0, maxVal, 0, NUM_LEDS -1 ); // calculate which led should light up
   Serial.print(maxVal);
   Serial.print("\t");
-  Serial.print(currLed);
+  Serial.println(currLed);
+  
   
   for (int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) {
     if ( currLed == whiteLed ) {
